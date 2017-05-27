@@ -1,0 +1,28 @@
+{
+  "name": "gold38",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.4.0",
+    "gulp-group-css-media-queries": "^1.2.0",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-svg-to-css": "^1.1.15",
+    "gulp-svgo": "^1.0.3",
+    "smart-grid": "^1.0.5",
+    "stylelint": "^7.10.1"
+  },
+  "lint-staged": {
+    "*.scss": "stylelint --syntax=scss"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "grraoo",
+  "license": "ISC",
+  "description": "mobile version gold38.ru"
+}

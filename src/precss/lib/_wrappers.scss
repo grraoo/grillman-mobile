@@ -1,0 +1,30 @@
+body {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: inherit;
+
+  &:focus {
+    outline: 1px dotted $c-gray;
+  }
+
+  &::before,
+  &::after {
+    box-sizing: inherit;
+
+    &:focus {
+      outline: 1px dotted $c-gray;
+    }
+  }
+}
+
+.container {
+  width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px $c-gray;
+  min-height: 100vh;
+  padding: 15px;
+}
+
