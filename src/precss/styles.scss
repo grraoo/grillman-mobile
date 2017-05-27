@@ -1,17 +1,40 @@
-@import 'lib/project', 'lib/mixins', 'lib/smart-grid';
-
-
-@import 'lib/wrappers', 'lib/helpers';
-
+@import "lib/project", "lib/mixins", "lib/smart-grid";
+@import "lib/wrappers", "lib/helpers";
 .food-menu {
   display: flex;
   list-style: none;
   margin: 0 -15px;
   overflow: hidden;
   padding: 0;
+  font-family: "Lobster";
+  font-style: normal;
+  border-top: 1px solid $c-delim-gray;
 
   &__item {
-    padding: 5px;
+    padding: 0 .5px;
+  }
+
+  &__link {
+    color: black;
+    font-size: 16px;
+    padding: 10px;
+    position: relative;
+    display: block;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: .7em;
+      width: 1px;
+      background-color: $c-delim-gray;
+      bottom: 14px;
+      right: -1px;
+    }
+
+    &--active {
+      background-color: $c-yellow;
+      color: $c-white;
+    }
   }
 }
 
@@ -19,9 +42,9 @@
   position: relative;
 
   &__top {
-  padding-left: 80px;
-  display: flex;
-  position: relative;
+    padding-left: 80px;
+    display: flex;
+    position: relative;
   }
 
   &__logo {
@@ -43,16 +66,16 @@
     margin-top: 0;
 
     &-link {
-      background-image: url('../img/phone.png');
+      font-family: "Lobster";
+      background-image: url("../img/phone.png");
       background-position: left center;
       background-repeat: no-repeat;
       color: $c-gray;
-      font-size: 25px;
+      font-size: 30px;
       padding-left: 35px;
       text-decoration: none;
     }
   }
-
 }
 
 .main-menu {
@@ -61,6 +84,8 @@
   overflow: hidden;
   height: 0;
   transition-duration: .3s;
+  background-color: $c-white;
+  z-index: 1;
 }
 
 .menu-control {
@@ -90,19 +115,20 @@
 
     &::before,
     &::after {
-      transform-origin: center;
-      transition-duration: .3s;
       background-color: $c-white;
-      content: '';
+      content: "";
+      height: 2px;
       left: 0;
       position: absolute;
       right: 0;
-      height: 2px;
+      transform-origin: center;
+      transition-duration: .3s;
     }
 
     &::before {
       top: -7px;
     }
+
     &::after {
       bottom: -7px;
     }
@@ -111,7 +137,6 @@
   &:focus {
     background-color: $c-yellow;
     outline: 0;
-
     .menu-control__hamburger {
       background-color: transparent;
 
@@ -131,6 +156,20 @@
     }
   }
 }
-
-
-
+.headline-banner {
+  font-family: "Lobster";
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  font-size: 24px;
+  background-image: url("../img/bg-banner.png");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100% 99px;
+  height: 82px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  margin-right: -15px;
+  margin-left: -15px;
+}
