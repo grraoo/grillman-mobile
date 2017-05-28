@@ -173,3 +173,71 @@
   margin-right: -15px;
   margin-left: -15px;
 }
+
+
+.product {
+  &__name {
+    font-family: "Lobster";
+    font-style: normal;
+    font-weight: 400;
+    padding: 15px;
+    margin: 0;
+    font-size: 22px;
+    color: $c-gray;
+  }
+
+  &__descr {
+    font-size: 13px;
+    line-height: 16px;
+    color: $c-lightgray;
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  &__weight {
+    color: $c-lightgray;
+    padding: 0 15px;
+  }
+
+  &__buy {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 2px dashed $c-bg-gray;
+  }
+
+  &__price {
+    font-family: "Lobster";
+    font-style: normal;
+    font-size: 22px;
+  }
+}
+
+.btn {
+  background-color: $c-yellow;
+  border: 0;
+  color: $c-white;
+  font-family: Helvetica;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 30px;
+  border-radius: 15px;
+  padding-right: 15px;
+
+  &--buy {
+    padding-left: 30px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-image: url("../img/plus.svg");
+      background-size: contain;
+    }
+  }
+}
