@@ -9,7 +9,7 @@
   <link href="css/styles.css" type="text/css" data-template-style="true" rel="stylesheet">
 </head>
 
-<body class="intro">
+<body>
   <div class="container">
     <header class="page-header">
       <div class="page-header__top">
@@ -28,22 +28,22 @@
         </button>
         <nav class="page-header__menu main-menu">
           <ul class="main-menu__list">
-            <li class="main-menu-item">
+            <li class="main-menu__item">
               <a href="#" class="main-menu__link">Мы</a>
             </li>
-            <li class="main-menu-item">
+            <li class="main-menu__item main-menu__item--active">
               <a href="#" class="main-menu__link">Наше меню</a>
             </li>
-            <li class="main-menu-item">
+            <li class="main-menu__item">
               <a href="#" class="main-menu__link">Акции</a>
             </li>
-            <li class="main-menu-item">
+            <li class="main-menu__item">
               <a href="#" class="main-menu__link">О нас говорят</a>
             </li>
-            <li class="main-menu-item">
-              <a href="#" class="main-menu__link">Доставим бесплатно</a>
+            <li class="main-menu__item">
+              <a href="delivery.html" class="main-menu__link">Доставим бесплатно</a>
             </li>
-            <li class="main-menu-item">
+            <li class="main-menu__item">
               <a href="#" class="main-menu__link">Контакты</a>
             </li>
           </ul>
@@ -74,38 +74,55 @@
       </div>
     </header>
     <h1 class="headline-banner">Популярные товары</h1>
+
     <article class="product">
       <img src="img/assorti.jpg" alt="" class="product__img">
-      <h2 class="product__name">Горячее мясное ассорти</h2>
-      <p class="product__descr">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
-      <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
-      <div class="product__buy">
+      <div class="product__description">
 
-        <div class="product__price">1600 руб.</div>
-        <button class="btn btn--buy">Заказать
+        <h2 class="product__name">Горячее мясное ассорти</h2>
+        <p class="product__text">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
+        <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
+        <div class="product__buy">
+          <div class="product__price">1600 руб.</div>
+          <button class="btn btn--buy">Заказать</button>
+        </div>
 
-        </button>
+      </div>
+    </article>
+
+    <article class="product">
+      <img src="img/assorti.jpg" alt="" class="product__img">
+      <div class="product__description">
+
+        <h2 class="product__name">Горячее мясное ассорти</h2>
+        <p class="product__text">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
+        <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
+        <div class="product__buy">
+          <div class="product__price">1600 руб.</div>
+          <button class="btn btn--buy">Заказать</button>
+        </div>
 
       </div>
     </article>
     <article class="product">
       <img src="img/assorti.jpg" alt="" class="product__img">
-      <h2 class="product__name">Горячее мясное ассорти</h2>
-      <p class="product__descr">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
-      <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
-      <div class="product__buy">
+      <div class="product__description">
 
-        <div class="product__price">1600 руб.</div>
-        <button class="btn btn--buy">Заказать
-
-        </button>
+        <h2 class="product__name">Горячее мясное ассорти</h2>
+        <p class="product__text">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
+        <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
+        <div class="product__buy">
+          <div class="product__price">1600 руб.</div>
+          <button class="btn btn--buy">Заказать</button>
+        </div>
 
       </div>
     </article>
 
 
-    <footer class="intro-footer">
-      <ul class="footer-menu">
+
+    <footer class="page-footer">
+      <ul class="page-footer__menu footer-menu">
         <li class="footer-menu__item">
           <a href="" class="footer-menu__link">О нас</a>
         </li>
@@ -119,9 +136,9 @@
           <a href="" class="footer-menu__link">О нас говорят</a>
         </li>
       </ul>
-      <ul class="footer-menu">
+      <ul class="page-footer__menu footer-menu">
         <li class="footer-menu__item">
-          <a href="" class="footer-menu__link">Доставим бесплатно</a>
+          <a href="delivery.html" class="footer-menu__link">Доставим бесплатно!</a>
         </li>
         <li class="footer-menu__item">
           <a href="" class="footer-menu__link">Контакты</a>
@@ -130,20 +147,124 @@
           <a href="" class="footer-menu__link">Политика конфиденциальности</a>
         </li>
       </ul>
-      <p class="footer-slogan">Мы знаем как нужно жарить!</p>
-      <section class="social">
-        <h2 class="visually-hidden">Социальные ссылки</h2>
-        <a href="" class="social__link social__link--insta">Мы в инстаграмм</a>
-        <a href="" class="social__link social__link--vk">Мы вконтакте</a>
-        <a href="" class="social__link social__link--fb">Мы в Facebook</a>
-      </section>
-      <section class="footer-copy">
-        <h2 class="footer-copy__mir">
-          Разработка сайта: <a href="http://mirsaitov.net/" class="footer-copy__link">мирсайтов.net</a>
+      <div class="page-footer__slogan-wrap">
+
+        <p class="page-footer__slogan">Мы знаем как нужно жарить!</p>
+        <section class="page-footer__social social">
+          <h2 class="visually-hidden">Социальные ссылки</h2>
+          <a href="" class="social__link social__link--insta">Мы в инстаграмм</a>
+          <a href="" class="social__link social__link--vk">Мы вконтакте</a>
+          <a href="" class="social__link social__link--fb">Мы в Facebook</a>
+        </section>
+
+      </div>
+      <section class="page-footer__copy">
+        <h2 class="page-footer__mir">
+          Разработка сайта: <a href="http://mirsaitov.net/" class="page-footer__link">мирсайтов.net</a>
         </h2>
       </section>
     </footer>
+    <section class="modal-call">
+      <button type="button" class="modal-call__close">
+        <span>закрыть</span>
+      </button>
+      <form class="modal-call__wrap" action="" method="post">
+        <h2 class="modal-call__name">Заказ обратного звонка</h2>
+        <div class="modal-call__text">
+          Заполните поля ниже и нажмите кнопку “Отправить”. Наш администратор свяжется с вами в течение 15 минут.
+        </div>
+        <p class="modal-call__field">
+          <input type="text" class="modal-call__input" id="name" placeholder="Имя">
+          <label for="name" class="modal-call__label">Имя</label>
+        </p>
+
+        <p class="modal-call__field">
+          <input type="text" class="modal-call__input" id="phone" required placeholder="Телефон*">
+          <label for="phone" class="modal-call__label">Телефон*</label>
+        </p>
+
+        <button class="btn btn--call" type="submit">Отправить заявку</button>
+        <div class="modal-call__text">
+          Поля, помеченные (*) обязательны для заполнения
+        </div>
+
+      </form>
+    </section>
+    <section class="cart">
+      <div class="cart__content">
+        <div class="cart__qnt">
+          2
+        </div>
+        <div class="cart__price">
+          1230 руб.
+        </div>
+        <button class="btn btn--cart">
+          Заказать
+        </button>
+      </div>
+      <div class="cart__overlay">
+        <div class="cart__inner">
+          <h2 class="cart__order-name">
+            Мой заказ
+          </h2>
+          <ul class="cart__list">
+            <li class="cart__item">
+              <h3 class="cart__item-name">Ассорти из люля-кебаб с овощами гриль</h3>
+              <div class="cart__item-order">
+                <div class="cart__item-price">
+                  1 600 руб.<br>за шт.
+                </div>
+                <div class="cart__buy">
+                  <span class="cart__qnt-control">-</span>
+                  <input type="text" class="cart__item-qnt" value="1">
+                  <span class="cart__qnt-control">+</span>
+                </div>
+                <div class="cart__item-sum">
+                  Сумма:<br> 3 200 руб.
+                </div>
+                <div class="cart__item-del"></div>
+              </div>
+            </li>
+
+
+          </ul>
+        </div>
+      </div>
+    </section>
   </div>
+
+
+  <script>
+    var openMenu = document.querySelector('.menu-control');
+    var modalCall = document.querySelector('.modal-call');
+    var modalCallOpen = document.querySelector('.main-menu .btn');
+    var modalCallClose = document.querySelector('.modal-call__close');
+    var cartOpen = document.querySelector('.btn--buy');
+    var cart = document.querySelector('.cart');
+    var del = document.querySelector('.cart__item-del');
+
+
+      openMenu.addEventListener('click', function() {
+        this.classList.toggle('menu-control--active');
+      });
+
+      modalCallOpen.addEventListener('click', function(){
+        modalCall.classList.add('modal-call--open');
+        openMenu.classList.remove('menu-control--active');
+      });
+
+      modalCallClose.addEventListener('click', function(){
+        modalCall.classList.remove('modal-call--open');
+      });
+
+      cartOpen.addEventListener('click', function(){
+        cart.style.display="block";
+      });
+
+      del.addEventListener('click', function(){
+        cart.removeAttribute('style');
+      });
+  </script>
 </body>
 
 </html>
