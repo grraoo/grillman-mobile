@@ -155,9 +155,6 @@
       </p>
     </article>
 
-
-
-
     <footer class="page-footer">
       <ul class="page-footer__menu footer-menu">
         <li class="footer-menu__item">
@@ -206,34 +203,44 @@
         <span>закрыть</span>
       </button>
       <form class="modal-call__wrap" action="" method="post">
-        <h2 class="modal-call__name">Заказ обратного звонка</h2>
-        <div class="modal-call__text">
-          Заполните поля ниже и нажмите кнопку “Отправить”. Наш администратор свяжется с вами в течение 15 минут.
+        <div class="modal-call__form">
+          <h2 class="modal-call__name">Заказ обратного звонка</h2>
+          <div class="modal-call__text">
+            Заполните поля ниже и нажмите кнопку “Отправить”. Наш администратор свяжется с вами в течение 15 минут.
+          </div>
+          <p class="modal-call__field">
+            <input type="text" class="modal-call__input" id="name" placeholder="Имя">
+            <label for="name" class="modal-call__label">Имя</label>
+          </p>
+
+          <p class="modal-call__field">
+            <input type="text" class="modal-call__input" id="phone" required placeholder="Телефон*">
+            <label for="phone" class="modal-call__label">Телефон*</label>
+          </p>
+
+          <button class="btn btn--call" type="submit">Отправить заявку</button>
+          <div class="modal-call__text">
+            Поля, помеченные (*) обязательны для заполнения
+          </div>
+
         </div>
-        <p class="modal-call__field">
-          <input type="text" class="modal-call__input" id="name" placeholder="Имя">
-          <label for="name" class="modal-call__label">Имя</label>
-        </p>
-
-        <p class="modal-call__field">
-          <input type="text" class="modal-call__input" id="phone" required placeholder="Телефон*">
-          <label for="phone" class="modal-call__label">Телефон*</label>
-        </p>
-
-        <button class="btn btn--call" type="submit">Отправить заявку</button>
-        <div class="modal-call__text">
-          Поля, помеченные (*) обязательны для заполнения
+        <div class="modal-call__sent">
+          <p>Заявка на обратный звонок была успешно отправлена!<br><br>
+          Ожидайте звонка нашего менеджера в течение нескольких минут.<br><br>
+          Спасибо за оказанное доверие.
+          </p>
         </div>
-
       </form>
     </section>
     <section class="cart">
       <div class="cart__content">
-        <div class="cart__qnt">
-          2
-        </div>
-        <div class="cart__price">
-          1230 руб.
+        <div class="cart__wrap">
+          <div class="cart__qnt">
+            2
+          </div>
+          <div class="cart__price">
+            1230 руб.
+          </div>
         </div>
         <button class="btn btn--cart">
           Заказать
@@ -278,8 +285,10 @@
     var modalCallClose = document.querySelector('.modal-call__close');
     var cartOpen = document.querySelector('.btn--buy');
     var cart = document.querySelector('.cart');
+    var cartWr = document.querySelector('.cart__wrap');
     var del = document.querySelector('.cart__item-del');
-
+    var cartOverLay = document.querySelector('.cart__overlay');
+    var modalSend = document.querySelector('.btn--call');
 
       openMenu.addEventListener('click', function() {
         this.classList.toggle('menu-control--active');
@@ -292,16 +301,29 @@
 
       modalCallClose.addEventListener('click', function(){
         modalCall.classList.remove('modal-call--open');
+        modalCall.classList.remove('modal-call--sent');
+      });
+
+      modalSend.addEventListener('click', function(e){
+        modalCall.classList.add('modal-call--sent');
       });
 
       cartOpen.addEventListener('click', function(){
         cart.style.display="block";
       });
 
-      del.addEventListener('click', function(){
-        cart.removeAttribute('style');
+      cartWr.addEventListener('click', function(){
+        cartOverLay.style.display = "block";
       });
+
+      del.addEventListener('click', function(e){
+        cartOverLay.removeAttribute('style');
+      });
+
+
+
   </script>
+
 </body>
 
 </html>
