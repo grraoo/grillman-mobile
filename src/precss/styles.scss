@@ -543,6 +543,18 @@
     display: block;
   }
 
+  &__sent {
+    display: none;
+  }
+
+  &--sent &__sent {
+    display: block;
+  }
+
+  &--sent &__form {
+    display: none;
+  }
+
   &__close {
     width: 100%;
     padding-top: 30px;
@@ -663,8 +675,14 @@
 }
 
 .cart {
-  display: none;
+  // display: none;
+  &__wrap {
+    display: flex;
 
+    margin-right: auto;
+
+    align-items: center;
+  }
   &__overlay {
     position: fixed;
     top: 0;
