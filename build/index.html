@@ -7,6 +7,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="css/styles.css" type="text/css" data-template-style="true" rel="stylesheet">
+  <link rel="shortcut icon" href="favicon.ico" type="image/vnd.microsoft.icon">
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="js/slick/slick.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
 </head>
 
 <body>
@@ -70,8 +75,29 @@
         </li>
       </ul>
       <div class="slider">
-        <img src="img/slider.jpg" alt="">
+        <img src="img/slider.jpg" alt="slider-pic">
+        <img src="img/slider.jpg" alt="slider-pic" style="filter: hue-rotate(120deg)">
+        <img src="img/slider.jpg" alt="slider-pic" style="filter: hue-rotate(240deg)">
+
       </div>
+      <script>
+        $('.food-menu').slick({
+          infinite: false,
+          slidesToShow: 4,
+          slidesToScroll: 2,
+          dots: false,
+          arrows: false
+      });
+
+        $('.slider').slick({
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: false,
+          arrows: false
+      });
+
+      </script>
     </header>
     <h1 class="headline-banner">Популярные товары</h1>
 
@@ -270,6 +296,7 @@
         cartOverLay.removeAttribute('style');
       });
   </script>
+
 </body>
 
 </html>
