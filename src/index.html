@@ -108,7 +108,7 @@
     </header>
     <h1 class="headline-banner">Популярные товары</h1>
 
-    <article class="product">
+    <article class="product" id="123">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
@@ -117,13 +117,13 @@
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
           <div class="product__price">1600 руб.</div>
-          <button class="btn btn--buy">Заказать</button>
+          <button class="btn btn--buy" data-buy="123">Заказать</button>
         </div>
 
       </div>
     </article>
 
-    <article class="product">
+    <article class="product" id="124">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
@@ -132,12 +132,12 @@
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
           <div class="product__price">1600 руб.</div>
-          <button class="btn btn--buy">Заказать</button>
+          <button class="btn btn--buy" data-buy="124">Заказать</button>
         </div>
 
       </div>
     </article>
-    <article class="product">
+    <article class="product" id="125">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
@@ -146,7 +146,7 @@
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
           <div class="product__price">1600 руб.</div>
-          <button class="btn btn--buy">Заказать</button>
+          <button class="btn btn--buy" data-buy="125">Заказать</button>
         </div>
 
       </div>
@@ -276,18 +276,56 @@
     </section>
   </div>
 
+<template>
+  <li class="cart__item">
+    <h3 class="cart__item-name">Ассорти из люля-кебаб с овощами гриль</h3>
+    <div class="cart__item-order">
+      <div class="cart__item-price">
+        1 600 руб.<br>за шт.
+      </div>
+      <div class="cart__buy">
+        <span class="cart__qnt-control">-</span>
+        <input type="text" class="cart__item-qnt" value="1">
+        <span class="cart__qnt-control">+</span>
+      </div>
+      <div class="cart__item-sum">
+        Сумма:<br> 3 200 руб.
+      </div>
+      <div class="cart__item-del"></div>
+    </div>
+  </li>
+</template>
 
   <script>
     var openMenu = document.querySelector('.menu-control');
     var modalCall = document.querySelector('.modal-call');
     var modalCallOpen = document.querySelector('.main-menu .btn');
     var modalCallClose = document.querySelector('.modal-call__close');
-    var cartOpen = document.querySelector('.btn--buy');
+    var addToCart = document.querySelectorAll('.product .btn--buy');
     var cart = document.querySelector('.cart');
     var cartWr = document.querySelector('.cart__wrap');
     var del = document.querySelector('.cart__item-del');
     var cartOverLay = document.querySelector('.cart__overlay');
     var modalSend = document.querySelector('.btn--call');
+    var product;
+    var productId;
+    var cartTemplate = document.querySelector('template');;
+
+    if ('content' in cartTemplate) {
+      elementToClone = cartTemplate.content.querySelector('.cart__item');
+    } else {
+      elementToClone = cartTemplate.querySelector('.cart__item');
+    }
+    var cartOpen = document.querySelector('.btn--buy'); //deprecated
+
+      for(var i = 0; i < addToCart.length; i++) {
+        addToCart[i].addEventListener('click', function(e){
+         productId = e.target.dataset.buy;
+         product = document.getElementById(productId);
+         var element = elementToClone.cloneNode(true);
+        })
+      }
+
 
       openMenu.addEventListener('click', function() {
         this.classList.toggle('menu-control--active');
@@ -318,7 +356,6 @@
       del.addEventListener('click', function(e){
         cartOverLay.removeAttribute('style');
       });
-
 
 
   </script>
