@@ -2,40 +2,51 @@
 @import "lib/wrappers", "lib/helpers";
 .food-menu {
   display: flex;
-  list-style: none;
+  overflow: hidden;
+
   margin: 0 -15px;
   margin-top: 9px;
-  overflow: hidden;
   padding: 0;
+
+  list-style: none;
+
+  border-top: 1px solid $c-delim-gray;
+
   font-family: "Lobster";
   font-style: normal;
-  border-top: 1px solid $c-delim-gray;
 
   &__item {
     padding: 0 .5px;
   }
 
   &__link {
-    color: black;
-    font-size: 16px;
-    padding: 8px 12px;
-    line-height: 1;
     position: relative;
+
     display: block;
+
+    padding: 8px 12px;
+
+    color: black;
+
+    font-size: 16px;
+    line-height: 1;
 
     &::after {
       position: absolute;
-      content: "";
-      height: .7em;
-      width: 1px;
-      background-color: $c-delim-gray;
-      bottom: 14px;
       right: -1px;
+      bottom: 14px;
+
+      width: 1px;
+      height: .7em;
+
+      content: "";
+
+      background-color: $c-delim-gray;
     }
 
     &--active {
-      background-color: $c-yellow;
       color: $c-white;
+      background-color: $c-yellow;
     }
   }
 }
@@ -44,15 +55,17 @@
   position: relative;
 
   &__top {
-    padding-left: 80px;
-    display: flex;
     position: relative;
+
+    display: flex;
+
+    padding-left: 80px;
   }
 
   &__logo {
-    left: -2px;
     position: absolute;
     top: -2px;
+    left: -2px;
   }
 
   &__phone {
@@ -60,56 +73,68 @@
   }
 
   &__call {
-    color: $c-lightgray;
-    font-size: 12px;
-    font-style: italic;
-    font-weight: 100;
-    line-height: 14px;
     margin-top: 0;
     margin-bottom: 0;
 
+    color: $c-lightgray;
+
+    font-size: 12px;
+    font-weight: 100;
+    font-style: italic;
+    line-height: 14px;
+
     &-link {
-      font-family: "Lobster";
-      background-image: url("../img/phone.png");
-      background-position: left center;
-      background-repeat: no-repeat;
-      color: $c-gray;
-      font-size: 30px;
       padding-left: 35px;
+
       text-decoration: none;
+
+      color: $c-gray;
+      background-image: url("../img/phone.png");
+      background-repeat: no-repeat;
+      background-position: left center;
+
+      font-family: "Lobster";
+      font-size: 30px;
     }
   }
 }
 
 .main-menu {
   position: absolute;
+  z-index: 1;
   top: 100%;
+  right: -15px;
+  left: -15px;
+
   overflow: hidden;
+
+  margin-top: 10px;
+
+  transition-duration: .3s;
   transform: scaleY(0);
   transform-origin: top;
-  transition-duration: .3s;
-  background-color: $c-white;
-  z-index: 1;
-  left: -15px;
-  right: -15px;
-  font-style: normal;
-  font-size: 15px;
   text-align: center;
-  margin-top: 10px;
+
+  background-color: $c-white;
+
+  font-size: 15px;
+  font-style: normal;
 
   .btn {
     margin-bottom: 40px;
   }
 
   &__list {
-    list-style: none;
-    padding: 0;
     margin: 0;
     margin-bottom: 30px;
+    padding: 0;
+
+    list-style: none;
   }
 
   &__item {
     text-align: center;
+
     border-bottom: 1px solid $c-bg-lightgray;
     &--active {
       background-color: $c-red;
@@ -121,48 +146,62 @@
   }
 
   &__link {
-    color: black;
-    padding: 16px 0;
-    text-align: center;
     display: block;
+
+    padding: 16px 0;
+
+    text-align: center;
+
+    color: black;
   }
 }
 
 .menu-control {
-  background-color: $c-bg-gray;
-  border: 0;
-  border-radius: 50%;
-  font-size: 0;
-  height: 45px;
   width: 45px;
+  height: 45px;
   margin-left: auto;
 
+  border: 0;
+  border-radius: 50%;
+  background-color: $c-bg-gray;
+
+  font-size: 0;
+
   &__inner {
-    align-items: center;
     display: flex;
-    height: 100%;
-    justify-content: center;
+
     width: 100%;
+    height: 100%;
+
+    align-items: center;
+    justify-content: center;
   }
 
   &__hamburger {
-    background-color: $c-white;
-    display: block;
-    height: 2px;
     position: relative;
+
+    display: block;
+
     width: 22px;
+    height: 2px;
+
     transition-duration: .3s;
+
+    background-color: $c-white;
 
     &::before,
     &::after {
-      background-color: $c-white;
-      content: "";
-      height: 2px;
-      left: 0;
       position: absolute;
       right: 0;
-      transform-origin: center;
+      left: 0;
+
+      height: 2px;
+
+      content: "";
       transition-duration: .3s;
+      transform-origin: center;
+
+      background-color: $c-white;
     }
 
     &::before {
@@ -175,18 +214,20 @@
   }
 
   &--active {
-    background-color: $c-yellow;
     outline: 0;
+    background-color: $c-yellow;
     .menu-control__hamburger {
       background-color: transparent;
 
       &::before {
         top: 0;
+
         transform: rotate(45deg);
       }
 
       &::after {
         bottom: 0;
+
         transform: rotate(-45deg);
       }
     }
@@ -197,101 +238,122 @@
   }
 }
 .headline-banner {
-  font-family: "Lobster";
-  font-style: normal;
-  font-weight: 400;
+  height: 82px;
+  margin-top: 20px;
+  margin-right: -15px;
+  margin-bottom: 20px;
+  margin-left: -15px;
+  padding-top: 15px;
+
   text-align: center;
-  font-size: 24px;
+
   background-image: url("../img/bg-banner.png");
   background-repeat: no-repeat;
   background-position: top;
   background-size: 100% 99px;
-  height: 82px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-top: 15px;
-  margin-right: -15px;
-  margin-left: -15px;
+
+  font-family: "Lobster";
+  font-size: 24px;
+  font-weight: 400;
+  font-style: normal;
 }
 
 
 .product {
   margin-bottom: 21px;
+
   box-shadow: 0 0 25px 1px rgba(0, 0, 0, .1);
 
   &__description {
-    background-color: $c-white;
     padding: 15px;
+
+    background-color: $c-white;
   }
 
   &__name {
-    font-family: "Lobster";
-    font-style: normal;
-    font-weight: 400;
     margin: 0;
     margin-bottom: 9px;
-    font-size: 22px;
-    line-height: 24px;
+
     color: $c-gray;
+
+    font-family: "Lobster";
+    font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
   }
 
   &__text {
+    margin: 0;
+
+    color: $c-lightgray;
+
     font-size: 13px;
     line-height: 16px;
-    color: $c-lightgray;
-    margin: 0;
   }
 
   &__weight {
     margin: 0;
     margin-top: 10px;
-    color: $c-lightgray;
     margin-bottom: 18px;
+
+    color: $c-lightgray;
   }
 
   &__buy {
+    display: flex;
+
+    margin: 0 -15px;
     padding: 15px;
     padding-top: 20px;
     padding-bottom: 5px;
-    margin: 0 -15px;
-    display: flex;
-    justify-content: space-between;
+
     border-top: 2px dashed $c-bg-gray;
+
+    justify-content: space-between;
   }
 
   &__price {
     font-family: "Lobster";
-    font-style: normal;
     font-size: 22px;
+    font-style: normal;
   }
 }
 
 .btn {
-  background-color: $c-yellow;
-  border: 0;
-  color: $c-white;
-  font-family: Helvetica;
-  font-style: italic;
-  font-size: 15px;
-  line-height: 40px;
-  border-radius: 20px;
   padding-right: 30px;
   padding-left: 30px;
 
+  color: $c-white;
+  border: 0;
+  border-radius: 20px;
+  background-color: $c-yellow;
+
+  font-family: Helvetica;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 40px;
+
   &--buy {
-    border-radius: 15px;
-    line-height: 30px;
-    padding-right: 15px;
-    padding-left: 30px;
     position: relative;
 
+    padding-right: 15px;
+    padding-left: 30px;
+
+    border-radius: 15px;
+
+    line-height: 30px;
+
     &::before {
-      content: "";
       position: absolute;
       top: 7px;
       left: 7px;
+
       width: 16px;
       height: 16px;
+
+      content: "";
+
       border-radius: 50%;
       background-image: url("../img/plus.svg");
       background-size: contain;
@@ -300,85 +362,102 @@
 
   &--call {
     width: 100%;
-    text-align: center;
     margin-top: 20px;
     margin-bottom: 30px;
+
+    text-align: center;
   }
 
   &--cart {
-    background-color: $c-red;
-    border-radius: 15px;
-    line-height: 27px;;
+    position: relative;
+
     padding-right: 20px;
     padding-left: 35px;
-    position: relative;
+
+    border-radius: 15px;
+    background-color: $c-red;
+
     font-family: "Lobster";
     font-style: normal;
+    line-height: 27px;;
 
     &::before {
-      content: "";
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-image: url("../img/confirm.png");
       position: absolute;
       top: 6px;
       left: 10px;
+
+      width: 16px;
+      height: 16px;
+
+      content: "";
+
+      border-radius: 50%;
+      background-image: url("../img/confirm.png");
     }
   }
 }
 
 
 .page-footer {
-  background-color: $c-gray;
-  background-image: url("../img/grass.png");
-  background-position: bottom right;
-  background-repeat: no-repeat;
+  position: relative;
+
   margin: 0 -15px;
   margin-top: 50px;
   padding: 15px;
+
   color: $c-white;
-  position: relative;
+  background-color: $c-gray;
+  background-image: url("../img/grass.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
 
   &::before {
-    content: "";
     position: absolute;
     top: -30px;
     right: 0;
+
     width: 234px;
     height: 249px;
-    background-position: center;
+
+    content: "";
+
     background-image: url("../img/plate.png");
     background-repeat: no-repeat;
+    background-position: center;
   }
 
   &__slogan-wrap {
     display: flex;
+
     align-items: flex-start;
   }
 
   &__slogan {
-    font-size: 14px;
     margin: 0;
     padding: 0;
+
+    font-size: 14px;
   }
 
   &__copy {
-    padding: 15px;
-    padding-bottom: 0;
     margin: 0 -15px;
     margin-top: 50px;
+    padding: 15px;
+    padding-bottom: 0;
+
     border-top: 1px solid $c-lightgray;
   }
 
   &__mir {
     color: $c-lightgray;
-    font-weight: 100;
+
     font-size: 13px;
+    font-weight: 100;
   }
 
   &__link {
     padding: 0;
+
     color: white;
     border-bottom: 1px solid;
   }
@@ -397,13 +476,16 @@
 }
 
 .footer-menu {
-  list-style: none;
-  padding: 0;
-  font-size: 14px;
   display: flex;
   flex-direction: column;
-  line-height: 1.5;
+
+  padding: 0;
+
+  list-style: none;
+
+  font-size: 14px;
   font-weight: 100;
+  line-height: 1.5;
 
   &__item {
     margin: 3px 0;
@@ -415,18 +497,22 @@
 }
 
 .social {
-  margin-left: 1em;
-  width: 100px;
   display: flex;
+
+  width: 100px;
+  margin-left: 1em;
+
   justify-content: space-between;
 
   &__link {
     width: 28px;
     height: 28px;
+
     border-radius: 50%;
-    font-size: 0;
-    background-position: center;
     background-repeat: no-repeat;
+    background-position: center;
+
+    font-size: 0;
 
     &--vk {
       background-image: url("../img/icon-vk.png");
@@ -441,13 +527,16 @@
 }
 
 .modal-call {
-  background-color: rgba(0, 0, 0, .5);
   position: fixed;
   top: 0;
-  height: 100vh;
   left: calc(50% - 160px);
-  width: 320px;
+
   display: none;
+
+  width: 320px;
+  height: 100vh;
+
+  background-color: rgba(0, 0, 0, .5);
 
   &--open {
     display: block;
@@ -457,56 +546,70 @@
     width: 100%;
     padding-top: 30px;
     padding-bottom: 15px;
-    background-color: transparent;
+
     border: 0;
+    background-color: transparent;
 
     span {
-      color: white;
-      font-family: Helvetica, sans-serif;
-      font-style: italic;
-      font-size: 16px;
       text-decoration: underline;
+
+      color: white;
+
+      font-family: Helvetica, sans-serif;
+      font-size: 16px;
+      font-style: italic;
       line-height: 30px;
     }
 
     &::after {
-      content: "";
-      background-image: url("../img/close.svg");
-      height: 30px;
-      width: 30px;
       display: inline-block;
+
+      width: 30px;
+      height: 30px;
+
+      content: "";
       vertical-align: bottom;
+
+      background-image: url("../img/close.svg");
+
       line-height: 30px;
     }
   }
 
   &__wrap {
-    background-color: white;
-    padding: 30px;
-    text-align: center;
-    padding-bottom: 63px;
     position: relative;
+
+    padding: 30px;
+    padding-bottom: 63px;
+
+    text-align: center;
+
+    background-color: white;
 
     &::after {
       position: absolute;
-      content: "";
+      bottom: -80px;
+      left: 0;
+
       width: 100%;
       height: 151px;
+
+      content: "";
+
       background-image: url("../img/plate-full.png");
       background-repeat: no-repeat;
       background-position: 75px 0;
-      bottom: -80px;
-      left: 0;
     }
   }
 
   &__name {
     margin: 0;
+    margin-bottom: 10px;
+
     font-family: "Lobster";
+    font-size: 24px;
     font-weight: normal;
     font-style: normal;
-    font-size: 24px;
-    margin-bottom: 10px;
   }
 
   &__text {
@@ -521,19 +624,23 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
     transition-duration: .2s;
+    transform: translate(-50%, -50%);
   }
 
   &__input {
-    width: 100%;
     box-sizing: border-box;
-    line-height: 16px;
-    padding: 10px 30px;;
-    border-radius: 21px;
-    border: 1px solid #9a9a9a;
-    outline: 0;
+    width: 100%;
+    padding: 10px 30px;
+
     text-align: center;
+
+    border: 1px solid #9a9a9a;
+    border-radius: 21px;
+    outline: 0;
+
+    line-height: 16px;;
 
     &:invalid {
       border-color: red;
@@ -543,7 +650,9 @@
 
   &__input:focus + &__label {
     top: 0;
+
     transform: translate(-50%, -100%);
+
     font-size: 10px;
   }
 
@@ -556,94 +665,118 @@
   display: none;
 
   &__overlay {
-    background-color: rgba(0, 0, 0, .5);
     position: fixed;
     top: 0;
-    height: 100vh;
     left: calc(50% - 160px);
+
+    display: none;
+
     width: 320px;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, .5);
   }
 
   &__inner {
-    background-color: $c-white;
-    padding: 15px;
     position: absolute;
     bottom: 45px;
-    width: 100%;
     left: 0;
+
+    width: 100%;
+    padding: 15px;
+
+    background-color: $c-white;
   }
 
   &__order-name {
-    font-family: "Lobster";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
     margin: 0;
+
+    font-family: "Lobster";
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
   }
 
   &__item-name {
-    font-family: "Lobster";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 20px;
     margin: 0;
     margin-top: 25px;
+
+    font-family: "Lobster";
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 20px;
   }
 
   &__list {
     overflow: auto;
+
     max-height: 50vh;
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+
+    list-style: none;
   }
 
 
   &__item-order {
     display: flex;
+
     margin-top: 15px;
   }
 
   &__item-price,
   &__item-sum {
+    width: 75px;
+
+    color: #6c6c6c;
+
     font-size: 14px;
     line-height: 16px;
-    color: #6c6c6c;
-    width: 75px;
   }
 
   &__buy {
-    width: 85px;
-    text-align: center;
-    background-color: $c-yellow;
     display: flex;
+
+    width: 85px;
+    margin: 0 10px;
+    padding: 0 10px;
+
+    text-align: center;
+
+    border-radius: 20px;
+    background-color: $c-yellow;
+
     align-items: center;
     justify-content: space-between;
-    margin: 0 10px;
-    border-radius: 20px;
-    padding: 0 10px;
   }
 
   &__qnt-control {
+    position: relative;
+
     display: block;
+
     width: 16px;
     height: 16px;
+
+    color: $c-yellow;
     border-radius: 50%;
     background-color: $c-white;
-    color: $c-yellow;
-    font-weight: bold;
+
     font-size: 0;
-    position: relative;
+    font-weight: bold;
 
     &::before,
     &::after {
-      content: "";
       position: absolute;
-      width: 10px;
-      height: 2px;
       top: 7px;
       left: 3px;
+
+      width: 10px;
+      height: 2px;
+
+      content: "";
+
       background-color: $c-yellow;
     }
 
@@ -655,31 +788,39 @@
 
   &__item-qnt {
     width: 25px;
+
     text-align: center;
-    font-family: "Lobster";
+
+    color: white;
     border: 0;
     background-color: $c-yellow;
-    color: white;
+
+    font-family: "Lobster";
   }
 
   &__item-del {
+    position: relative;
+
     width: 30px;
     height: 30px;
+    margin-left: 10px;
+
     border-radius: 50%;
     background-color: #dddddd;
-    margin-left: 10px;
-    position: relative;
 
     &::before,
     &::after {
-      content: "";
-      width: 2px;
-      background-color: white;
-      height: 17px;
       position: absolute;
       top: 50%;
       left: 50%;
+
+      width: 2px;
+      height: 17px;
+
+      content: "";
       transform: translate(-50%, -50%) rotate(45deg);
+
+      background-color: white;
     }
 
     &::after {
@@ -688,66 +829,80 @@
   }
 
   &__content {
-    background-color: $c-white;
-    display: flex;
-    padding: 10px 15px;
-    align-items: center;
     position: fixed;
+    z-index: 2;
     bottom: 0;
     left: calc(50% - 160px);
+
+    display: flex;
+
     width: 320px;
+    padding: 10px 15px;
+
+    background-color: $c-white;
     box-shadow: 0 0 25px 1px rgba(0, 0, 0, .1);
-    z-index: 2;
+
+    align-items: center;
   }
 
   &__qnt {
-    font-family: "Lobster";
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 26px;
-    color: white;
-    background-color: $c-red;
-    text-align: center;
-    padding: 0 10px;
-    border-radius: 13px;
     margin-left: 28px;
+    padding: 0 10px;
+
+    text-align: center;
+
+    color: white;
+    border-radius: 13px;
+    background-color: $c-red;
+
+    font-family: "Lobster";
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 26px;
 
     &::before {
       position: absolute;
-      content: "";
+      top: 50%;
+      left: 15px;
+
       width: 16px;
       height: 21px;
-      background-image: url("../img/shopping-bag.png");
-      left: 15px;
-      top: 50%;
+
+      content: "";
       transform: translateY(-50%);
+
+      background-image: url("../img/shopping-bag.png");
     }
   }
 
   &__price {
     margin-right: auto;
     margin-left: 10px;
+
     font-family: "Lobster";
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
   }
 }
 
 .delivery-info {
+  color: $c-lightgray;
+
   font-size: 13px;
   line-height: 16px;
-  color: $c-lightgray;
   &__headline {
-    font-family: "Lobster";
-    font-style: normal;
-    font-weight: 400;
     margin: 0;
     margin-bottom: 9px;
-    font-size: 22px;
-    line-height: 24px;
+
     color: $c-gray;
+
+    font-family: "Lobster";
+    font-size: 22px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 24px;
   }
 
   &__text {
@@ -763,8 +918,9 @@
 
     &--icon {
       padding-left: 50px;
-      background-position: left center;
+
       background-repeat: no-repeat;
+      background-position: left center;
     }
 
     &--visa {
@@ -777,14 +933,16 @@
   }
 
   &__list {
-    list-style: none;
     padding: 0;
+
+    list-style: none;
   }
 
   &__district {
-    list-style: "—";
-    padding-left: 5px;
     margin-left: 15px;
+    padding-left: 5px;
+
+    list-style: "—";
   }
 
   &__list-header {

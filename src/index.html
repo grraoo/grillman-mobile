@@ -241,8 +241,9 @@
     var modalCallClose = document.querySelector('.modal-call__close');
     var cartOpen = document.querySelector('.btn--buy');
     var cart = document.querySelector('.cart');
+    var cartQnt = document.querySelector('.cart__qnt');
     var del = document.querySelector('.cart__item-del');
-
+    var cartOverLay = document.querySelector('.cart__overlay');
 
       openMenu.addEventListener('click', function() {
         this.classList.toggle('menu-control--active');
@@ -261,8 +262,12 @@
         cart.style.display="block";
       });
 
-      del.addEventListener('click', function(){
-        cart.removeAttribute('style');
+      cartQnt.addEventListener('click', function(){
+        cartOverLay.style.display = "block";
+      });
+
+      del.addEventListener('click', function(e){
+        cartOverLay.removeAttribute('style');
       });
   </script>
 </body>
