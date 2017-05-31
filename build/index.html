@@ -108,7 +108,7 @@
     </header>
     <h1 class="headline-banner">Популярные товары</h1>
 
-    <article class="product" id="123">
+    <article class="product">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
@@ -117,36 +117,36 @@
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
           <div class="product__price">1600 руб.</div>
-          <button class="btn btn--buy" data-buy="123">Заказать</button>
+          <button class="btn btn--buy">Заказать</button>
         </div>
 
       </div>
     </article>
 
-    <article class="product" id="124">
+    <article class="product">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
-        <h2 class="product__name">Горячее костяное ассорти</h2>
+        <h2 class="product__name">Горячее мясное ассорти</h2>
         <p class="product__text">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
-          <div class="product__price">3000 руб.</div>
-          <button class="btn btn--buy" data-buy="124">Заказать</button>
+          <div class="product__price">1600 руб.</div>
+          <button class="btn btn--buy">Заказать</button>
         </div>
 
       </div>
     </article>
-    <article class="product" id="125">
+    <article class="product">
       <img src="img/assorti.jpg" alt="" class="product__img">
       <div class="product__description">
 
-        <h2 class="product__name">Холодное мясное ассорти</h2>
+        <h2 class="product__name">Горячее мясное ассорти</h2>
         <p class="product__text">Шашлык из свинины, люля-кебаб, чалагач, шашлык из куриного филе и куриных крылышек</p>
         <p class="product__weight">Вес блюда: <b>5100/400/600</b></p>
         <div class="product__buy">
-          <div class="product__price">100 руб.</div>
-          <button class="btn btn--buy" data-buy="125">Заказать</button>
+          <div class="product__price">1600 руб.</div>
+          <button class="btn btn--buy">Заказать</button>
         </div>
 
       </div>
@@ -259,7 +259,7 @@
                 </div>
                 <div class="cart__buy">
                   <span class="cart__qnt-control">-</span>
-                  <input type="text" class="cart__item-qnt" value="2">
+                  <input type="text" class="cart__item-qnt" value="1">
                   <span class="cart__qnt-control">+</span>
                 </div>
                 <div class="cart__item-sum">
@@ -276,123 +276,18 @@
     </section>
   </div>
 
-<template>
-  <li class="cart__item">
-    <h3 class="cart__item-name">Ассорти из люля-кебаб с овощами гриль</h3>
-    <div class="cart__item-order">
-      <div class="cart__item-price">
-        1600 руб.<br>за шт.
-      </div>
-      <div class="cart__buy">
-        <span class="cart__qnt-control js-minus">-</span>
-        <input type="text" class="cart__item-qnt"  value="1">
-        <span class="cart__qnt-control js-plus">+</span>
-      </div>
-      <div class="cart__item-sum">Сумма:<br> 3200 руб.</div>
-      <div class="cart__item-del"></div>
-    </div>
-  </li>
-</template>
 
   <script>
     var openMenu = document.querySelector('.menu-control');
     var modalCall = document.querySelector('.modal-call');
     var modalCallOpen = document.querySelector('.main-menu .btn');
     var modalCallClose = document.querySelector('.modal-call__close');
-    var addToCart = document.querySelectorAll('.product .btn--buy');
+    var cartOpen = document.querySelector('.btn--buy');
     var cart = document.querySelector('.cart');
     var cartWr = document.querySelector('.cart__wrap');
     var del = document.querySelector('.cart__item-del');
     var cartOverLay = document.querySelector('.cart__overlay');
     var modalSend = document.querySelector('.btn--call');
-    var product, productId, productName, productPrice;
-    var cartTemplate = document.querySelector('template');;
-    var cartList = document.querySelector('.cart__list');
-
-
-    if ('content' in cartTemplate) {
-      elementToClone = cartTemplate.content.querySelector('.cart__item');
-    } else {
-      elementToClone = cartTemplate.querySelector('.cart__item');
-    }
-    var cartOpen = document.querySelector('.btn--buy'); //deprecated
-
-    function countTotal() {
-          var totalSum = document.querySelector('.cart__price');
-          var itemSums = document.querySelectorAll('.cart__item-sum');
-          var total = 0;
-          console.log(total);
-          for(i=0; i < itemSums.length; i++){
-            var itemSum = Number(itemSums[i].innerText.replace(/\D/g,''));
-            total = total + itemSum;
-          console.log(total);
-          }
-          totalSum.innerHTML = total + ' руб.';
-        }
-
-      function countItemSum(elem, prod) {
-        var cartItemSum = elem.querySelector('.cart__item-sum');
-        var cartItemQnt = elem.querySelector('.cart__item-qnt').value;
-        var sumString = (parseInt(prod.querySelector('.product__price').innerText) * cartItemQnt);
-        var cartItemSums;
-
-        cartItemSum.innerHTML = 'Сумма:<br>' + sumString + ' руб.';
-      }
-
-      function countSumChange(item){
-            item.parentNode.parentNode.querySelector('.cart__item-sum').innerHTML =  'Сумма:<br>' + parseInt(item.parentNode.parentNode.querySelector('.cart__item-price').innerText) * item.value + ' руб.';
-          }
-
-  var cartItemSums = cartList.querySelectorAll('.cart__item-sum');
-
-      for(var i = 0; i < addToCart.length; i++) {
-        addToCart[i].addEventListener('click', function(e){
-        productId = e.target.dataset.buy;
-        product = document.getElementById(productId);
-        productName = product.querySelector('.product__name').innerText;
-        productPrice = product.querySelector('.product__price').innerText;
-        var element = elementToClone.cloneNode(true);
-
-        var cartItemName = element.querySelector('.cart__item-name');
-        cartItemName.innerText = productName;
-        var cartItemPrice = element.querySelector('.cart__item-price');
-        cartItemPrice.innerHTML = productPrice + '<br>за шт.';
-
-        countItemSum(element, product);
-
-        cartList.insertBefore(element, cartList.firstChild);
-
-
-
-        var cartItemQntInputs = cartList.querySelectorAll('.cart__item-qnt');
-        var cartItemSums = cartList.querySelectorAll('.cart__item-sum');
-
-        for(var i = 0; i < cartItemQntInputs.length; i++) {
-          cartItemQntInputs[i].addEventListener('input', function(e){
-
-            countSumChange(e.target);
-            countTotal()
-          });
-        }
-        countTotal()
-        })
-      }
-        cartList.addEventListener('click', function(e){
-          if(e.target.classList.contains('js-plus')) {
-            e.target.parentNode.querySelector('.cart__item-qnt').value++;
-            countSumChange(e.target.parentNode.querySelector('.cart__item-qnt'));
-            countTotal()
-          } else if(e.target.classList.contains('js-minus')) {
-            if(e.target.parentNode.querySelector('.cart__item-qnt').value > 0) {
-              e.target.parentNode.querySelector('.cart__item-qnt').value--;
-              countSumChange(e.target.parentNode.querySelector('.cart__item-qnt'));
-              countTotal()
-            }
-          }
-        });
-
-
-
 
       openMenu.addEventListener('click', function() {
         this.classList.toggle('menu-control--active');
@@ -423,6 +318,7 @@
       del.addEventListener('click', function(e){
         cartOverLay.removeAttribute('style');
       });
+
 
 
   </script>
