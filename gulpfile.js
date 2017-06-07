@@ -56,7 +56,7 @@ gulp.task('build', function() {
 			cascade: false
 		}))
 		.pipe(gcmq())
-		.pipe(cleanCSS())
+		// .pipe(cleanCSS())
 		.pipe(gulp.dest(config.dest + config.css.dest))
 
 		.pipe(browserSync.reload({

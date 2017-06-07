@@ -2,15 +2,19 @@
   font-family: "Lobster";
   font-weight: 400;
   font-style: normal;
-
   src: url("../fonts/lobster-400-normal.woff2") format("woff2"),
   url("../fonts/lobster-400-normal.woff") format("woff"),
   url("../fonts/lobster-400-normal.ttf") format("truetype");
 }
 
-body {
-  margin: 0;
 
+html {
+  width: 320px;
+}
+
+body {
+  width: 320px;
+  margin: 0;
   font-family: Helvetica, Arial, sans-serif;
   font-size: 13px;
   font-style: italic;
@@ -23,7 +27,6 @@ a {
 
 img {
   display: block;
-
   max-width: 100%;
   height: auto;
 }
@@ -35,28 +38,22 @@ img {
 
 .visually-hidden {
   position: absolute;
-
   overflow: hidden;
   clip: rect(0 0 0 0);
-
   width: 1px;
   height: 1px;
   margin: -1px;
   padding: 0;
-
   border: 0;
 }
 
 template {
   position: absolute;
-
   overflow: hidden;
   clip: rect(0 0 0 0);
-
   width: 1px;
   height: 1px;
   margin: -1px;
   padding: 0;
-
   border: 0;
 }

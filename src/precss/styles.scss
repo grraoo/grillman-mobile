@@ -1,5 +1,66 @@
 @import "lib/project", "lib/mixins", "lib/smart-grid";
-@import "lib/wrappers", "lib/helpers";
+@import "lib/wrappers", "lib/_helpers.scss";
+
+@font-face {
+  font-family: "Lobster";
+  font-weight: 400;
+  font-style: normal;
+  src: url("../fonts/lobster-400-normal.woff2") format("woff2"),
+  url("../fonts/lobster-400-normal.woff") format("woff"),
+  url("../fonts/lobster-400-normal.ttf") format("truetype");
+}
+
+
+html {
+  width: 320px;
+}
+
+body {
+  margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.slider {
+  margin: 0 -15px;
+}
+
+
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+template {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+
 .food-menu {
   display: flex;
   overflow: hidden;
@@ -13,6 +74,10 @@
 
   &__item {
     padding: 0 .5px;
+
+    &:last-of-type > .food-menu__link::after {
+      display: none;
+    }
   }
 
   &__link {
@@ -26,9 +91,9 @@
     &::after {
       position: absolute;
       right: -1px;
-      bottom: 14px;
+      bottom: 8px;
       width: 1px;
-      height: .7em;
+      height: 16px;
       content: "";
       background-color: $c-delim-gray;
     }
@@ -54,6 +119,8 @@
     z-index: 1;
     top: -2px;
     left: -2px;
+    width: 70px;
+    height: 70px;
   }
 
   &__phone {
@@ -73,11 +140,13 @@
       padding-left: 35px;
       text-decoration: none;
       color: $c-gray;
-      background-image: url("../img/phone.png");
+      background-image: url("../img/telephone.svg");
+      background-size: 28px 26px;
       background-repeat: no-repeat;
       background-position: left center;
       font-family: "Lobster";
       font-size: 30px;
+      font-style: normal;
     }
   }
 }
@@ -111,9 +180,12 @@
 
   &__item {
     text-align: center;
-    border-bottom: 1px solid $c-bg-lightgray;
+    border-bottom: 1px solid $c-delim-gray;
+    font-family: "Lobster";
+    font-style: normal;
     &--active {
       background-color: $c-red;
+      border-color: #e70d14;
 
       .main-menu__link {
         color: $c-white;
@@ -208,7 +280,7 @@
   background-image: url("../img/bg-banner.png");
   background-repeat: no-repeat;
   background-position: top;
-  background-size: 100% 99px;
+  // background-size: 100% 99px;
   font-family: "Lobster";
   font-size: 24px;
   font-weight: 400;
@@ -324,7 +396,7 @@
       height: 16px;
       content: "";
       border-radius: 50%;
-      background-image: url("../img/confirm.png");
+      background-image: url("../img/confirm.svg");
     }
   }
 }
@@ -444,11 +516,12 @@
 .modal-call {
   position: fixed;
   top: 0;
-  left: calc(50% - 160px);
+  left: 0;
   display: none;
   width: 320px;
   height: 100vh;
   background-color: rgba(0, 0, 0, .5);
+  z-index: 2;
 
   &--open {
     display: block;
@@ -547,11 +620,6 @@
     border-radius: 21px;
     outline: 0;
     line-height: 16px;;
-
-    &:invalid {
-      border-color: red;
-      background-color: #ffeded;
-    }
   }
 
   &__input:focus + &__label {
@@ -571,15 +639,17 @@
     display: flex;
     margin-right: auto;
     align-items: center;
+    flex-grow: 1;
   }
   &__overlay {
     position: fixed;
     top: 0;
-    left: calc(50% - 160px);
+    left: 0;
     display: none;
     width: 320px;
     height: 100vh;
     background-color: rgba(0, 0, 0, .5);
+    z-index: 2;
 
     &--show {
       display: block;
@@ -711,9 +781,9 @@
 
   &__content {
     position: fixed;
-    z-index: 2;
+    z-index: 3;
     bottom: 0;
-    left: calc(50% - 160px);
+    left: 0;
     display: flex;
     width: 320px;
     padding: 10px 15px;
@@ -743,7 +813,7 @@
       height: 21px;
       content: "";
       transform: translateY(-50%);
-      background-image: url("../img/shopping-bag.png");
+      background-image: url("../img/shopping-bag.svg");
     }
   }
 
